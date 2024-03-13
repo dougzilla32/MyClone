@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import OpenAI from 'openai';
+import { environment } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class OpenAIService {
   constructor() { }
 
   readonly openai = new OpenAI({
-    apiKey: "hi" // process.env.OPENAI_API_KEY,
+    apiKey: environment.openAIApiKey,
   });
 
   async getCompletion(prompt: string): Promise<string> {
